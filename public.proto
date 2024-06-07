@@ -8,9 +8,9 @@ import "party.proto";
 import "election.proto" ;
 
 service PublicService {
-    rpc CreatePublic(Public) returns (Void) {}
+    rpc CreatePublic(PublicCreate) returns (Void) {}
     rpc DeletePublic(ById) returns (Void) {}
-    rpc UpdatePublic(Public) returns(Void){}
+    rpc UpdatePublic(PublicCreate) returns(Void){}
     rpc GetByIdPublic(ById) returns (Public) {}
     rpc GetAllPublics(Filter) returns (GetAllPublic) {}
 }
@@ -23,6 +23,15 @@ message Public {
     string gender=5;
     string nation=6;
     Party  party=7;
+}
+message PublicCreate {
+  string id = 1;
+  string first_name=2;
+  string last_name=3;
+  string birthday =4;
+  string gender=5;
+  string nation=6;
+  string  party=7;
 }
 
 message GetAllPublic{
